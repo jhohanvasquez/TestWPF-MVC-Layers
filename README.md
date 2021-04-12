@@ -28,7 +28,7 @@ Test.Service : esta es la capa de servicio donde se definen todos los contratos 
   
   ![image](https://user-images.githubusercontent.com/36570532/114334291-e4c71880-9b0f-11eb-86f9-072782101b7c.png)
   
-Nota: Asegure que el servico pueda ser cosumido por la aplicacion web, de lo contrario actualice la url del servicio y actualice de nuevo.
+Nota: Asegure que el servico pueda ser cosumido por la aplicacion web, de lo contrario ejecute el servicio y copie la url, luego actualice de nuevo la referencia del servicio WCF en el proyecto MVC.
 
   ![image](https://user-images.githubusercontent.com/36570532/114334463-38396680-9b10-11eb-80e8-240156b5cd8f.png)
 
