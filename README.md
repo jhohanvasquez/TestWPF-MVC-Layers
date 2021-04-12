@@ -5,7 +5,7 @@
  
  ![image](https://user-images.githubusercontent.com/36570532/114338948-c2d29380-9b19-11eb-909b-1ff81eb824a7.png)
 
-# Ahora siga lo siguientes pasos:
+# Ahora continue con estos pasos:
  
  * 1. Ejecute el script de base de datos localicado en el proyecto en la ruta https://github.com/jhohanvasquez/TestWPF-MVC-Layers/blob/main/Test.BDO/ScriptDB/StoreProcedures.sql
 * 2. Actualice el servicio WCF en el codigo
