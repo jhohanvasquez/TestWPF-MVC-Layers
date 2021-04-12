@@ -23,7 +23,7 @@ Test.Service : esta es la capa de servicio donde se definen todos los contratos 
 
 # Ahora continue con estos pasos:
  
- * 1. Ejecute el script de base de datos localicado en el proyecto en la ruta https://github.com/jhohanvasquez/TestWPF-MVC-Layers/blob/main/Test.BDO/ScriptDB/StoreProcedures.sql
+ * 1. Ejecute el script de base de datos localizado en el proyecto en la ruta https://github.com/jhohanvasquez/TestWPF-MVC-Layers/blob/main/Test.BDO/ScriptDB/StoreProcedures.sql
 * 2. Actualice el servicio WCF en el codigo
   
   ![image](https://user-images.githubusercontent.com/36570532/114334291-e4c71880-9b0f-11eb-86f9-072782101b7c.png)
