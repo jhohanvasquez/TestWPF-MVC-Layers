@@ -13,7 +13,7 @@ Test.ogic : aquí es donde residirá la lógica empresarial principal, la capa d
 
 Test.Service : esta es la capa de servicio donde se definen todos los contratos de servicio y contratos de operación. Manejamos cualquier excepción que el servicio pueda generar y, en su lugar, devuelve contratos con fallas, delega la funcionalidad a la capa lógica.
  
- #Instalación
+# Instalación
  
  Por favor para comenzar cree una base de datos vacia en SQLSEVER llamada *BdTest*
  
