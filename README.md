@@ -44,5 +44,7 @@ Nota: Asegure que el servico pueda ser cosumido por la aplicacion web, de lo con
    
 * 5.Realice la demas operaciones del CRUD
    
-   ![image](https://user-images.githubusercontent.com/36570532/114335143-c3ffc280-9b11-11eb-9b00-fde77b1f9c06.png)
+   ![image](https://user-images.githubusercontent.com/36570532/114402620-a0686680-9b69-11eb-8679-6826bede7fe2.png)
+
+
 
