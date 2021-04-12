@@ -46,6 +46,10 @@
     <Compile Include="UserLogic.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Test.BDO\Test.BDO.csproj">
+      <Project>{6680e386-de89-454d-9f10-4f6af44a6b5a}</Project>
+      <Name>Test.BDO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Test.DAL\Test.DAL.csproj">
       <Project>{538c8ff2-78be-48db-b150-d60707d88309}</Project>
       <Name>Test.DAL</Name>
