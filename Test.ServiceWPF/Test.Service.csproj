@@ -97,10 +97,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Test.BDObj\Test.BDO.csproj">
-      <Project>{6680e386-de89-454d-9f10-4f6af44a6b5a}</Project>
-      <Name>Test.BDO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Test.DataContracts\Test.DataContracts.csproj">
       <Project>{715f943a-8ade-433a-8052-930f8293d26a}</Project>
       <Name>Test.DataContracts</Name>
