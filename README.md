@@ -1,6 +1,8 @@
 # TestWPF-MVC-Layers
  Integracion de MVC,WCF y SQLServer CRUD
  
+ ![image](https://user-images.githubusercontent.com/36570532/114339504-07126380-9b1b-11eb-894e-bed169abf616.png)
+ 
  Test.BDO : El Business Domain Object (BDO) es la clase que representa uno de los contratos de datos del servicio pero con varias propiedades más. Se utiliza en la capa de lógica empresarial, la capa de acceso a datos y la capa de servicio. Y no está expuesto a los clientes del servicio.
 
 Test.MVC : esta es la aplicación cliente MVC, que actualmente usa una aplicación de línea de comandos, también define el cliente proxy (referencia de servicio). Estos se generaron con el programa SvcUtil.exe. Aquí puedes consumir el servicio con cualquier aplicación que desees, puede ser un Winforms, o WPF, entre otros.
