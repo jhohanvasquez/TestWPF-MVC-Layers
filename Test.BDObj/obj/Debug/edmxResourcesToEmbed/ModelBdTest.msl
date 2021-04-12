@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BdTestModelStoreContainer" CdmEntityContainer="BdTestEntities">
+    <EntitySetMapping Name="TbUserGenders">
+      <EntityTypeMapping TypeName="BdTestModel.TbUserGender">
+        <MappingFragment StoreEntitySet="TbUserGenders">
+          <ScalarProperty Name="IdGenderUser" ColumnName="IdGenderUser" />
+          <ScalarProperty Name="GenderDescription" ColumnName="GenderDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TbUsers">
+      <EntityTypeMapping TypeName="BdTestModel.TbUser">
+        <MappingFragment StoreEntitySet="TbUsers">
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="IdGenderUser" ColumnName="IdGenderUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteUser" FunctionName="BdTestModel.Store.DeleteUser" />
+    <FunctionImportMapping FunctionImportName="ListorDetailUserGenders" FunctionName="BdTestModel.Store.ListorDetailUserGenders">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BdTestModel.ListorDetailUserGenders_Result">
+          <ScalarProperty Name="IdGenderUser" ColumnName="IdGenderUser" />
+          <ScalarProperty Name="GenderDescription" ColumnName="GenderDescription" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RegisterOrSaveUserUsers" FunctionName="BdTestModel.Store.RegisterOrSaveUserUsers" />
+    <FunctionImportMapping FunctionImportName="ListorDetailUser" FunctionName="BdTestModel.Store.ListorDetailUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BdTestModel.ListorDetailUser_Result">
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="IdGenderUser" ColumnName="IdGenderUser" />
+          <ScalarProperty Name="GenderDescription" ColumnName="GenderDescription" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,2 @@
+D:\Labs\Test.Solution\Test.BDObj\obj\Debug\Test.BDObj.csprojAssemblyReference.cache
+D:\Labs\Test.Solution\Test.BDObj\obj\Debug\Test.BDObj.csproj.CoreCompileInputs.cache

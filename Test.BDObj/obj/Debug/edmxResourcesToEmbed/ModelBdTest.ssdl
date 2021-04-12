@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BdTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TbUserGenders">
+    <Key>
+      <PropertyRef Name="IdGenderUser" />
+    </Key>
+    <Property Name="IdGenderUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GenderDescription" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TbUsers">
+    <Key>
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameUser" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="BirthDate" Type="datetime" Nullable="false" />
+    <Property Name="IdGenderUser" Type="int" Nullable="false" />
+    <Property Name="Sex" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Tb_Users_Tb_UserGenders">
+    <End Role="TbUserGenders" Type="Self.TbUserGenders" Multiplicity="1" />
+    <End Role="TbUsers" Type="Self.TbUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbUserGenders">
+        <PropertyRef Name="IdGenderUser" />
+      </Principal>
+      <Dependent Role="TbUsers">
+        <PropertyRef Name="IdGenderUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="DeleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ListorDetailUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ListorDetailUserGenders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGenderUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="RegisterOrSaveUserUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUser" Type="int" Mode="In" />
+    <Parameter Name="NameUser" Type="varchar" Mode="In" />
+    <Parameter Name="BirthDate" Type="datetime" Mode="In" />
+    <Parameter Name="IdGenderUser" Type="int" Mode="In" />
+    <Parameter Name="Sex" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="BdTestModelStoreContainer">
+    <EntitySet Name="TbUserGenders" EntityType="Self.TbUserGenders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbUsers" EntityType="Self.TbUsers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Tb_Users_Tb_UserGenders" Association="Self.FK_Tb_Users_Tb_UserGenders">
+      <End Role="TbUserGenders" EntitySet="TbUserGenders" />
+      <End Role="TbUsers" EntitySet="TbUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

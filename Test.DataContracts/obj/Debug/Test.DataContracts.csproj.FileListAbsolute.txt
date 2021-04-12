@@ -1,0 +1,5 @@
+D:\Labs\Test.Solution\Test.DataContracts\bin\Debug\StoreDataContracts.dll
+D:\Labs\Test.Solution\Test.DataContracts\bin\Debug\StoreDataContracts.pdb
+D:\Labs\Test.Solution\Test.DataContracts\obj\Debug\Test.DataContracts.csproj.CoreCompileInputs.cache
+D:\Labs\Test.Solution\Test.DataContracts\obj\Debug\StoreDataContracts.dll
+D:\Labs\Test.Solution\Test.DataContracts\obj\Debug\StoreDataContracts.pdb

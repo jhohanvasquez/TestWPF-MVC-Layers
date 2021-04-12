@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BdTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TbUserGender">
+    <Key>
+      <PropertyRef Name="IdGenderUser" />
+    </Key>
+    <Property Name="IdGenderUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GenderDescription" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TbUsers" Relationship="Self.FK_Tb_Users_Tb_UserGenders" FromRole="TbUserGenders" ToRole="TbUsers" />
+  </EntityType>
+  <EntityType Name="TbUser">
+    <Key>
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameUser" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IdGenderUser" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TbUserGender" Relationship="Self.FK_Tb_Users_Tb_UserGenders" FromRole="TbUsers" ToRole="TbUserGenders" />
+    <Property Name="Sex" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Tb_Users_Tb_UserGenders">
+    <End Role="TbUserGenders" Type="Self.TbUserGender" Multiplicity="1" />
+    <End Role="TbUsers" Type="Self.TbUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbUserGenders">
+        <PropertyRef Name="IdGenderUser" />
+      </Principal>
+      <Dependent Role="TbUsers">
+        <PropertyRef Name="IdGenderUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BdTestEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TbUserGenders" EntityType="Self.TbUserGender" />
+    <EntitySet Name="TbUsers" EntityType="Self.TbUser" />
+    <AssociationSet Name="FK_Tb_Users_Tb_UserGenders" Association="Self.FK_Tb_Users_Tb_UserGenders">
+      <End Role="TbUserGenders" EntitySet="TbUserGenders" />
+      <End Role="TbUsers" EntitySet="TbUsers" />
+    </AssociationSet>
+    <FunctionImport Name="DeleteUser">
+      <Parameter Name="IdUser" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ListorDetailUserGenders" ReturnType="Collection(BdTestModel.ListorDetailUserGenders_Result)">
+      <Parameter Name="IdGenderUser" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="RegisterOrSaveUserUsers" EntitySet="TbUsers" ReturnType="Collection(BdTestModel.TbUser)">
+      <Parameter Name="IdUser" Mode="In" Type="Int32" />
+      <Parameter Name="NameUser" Mode="In" Type="String" />
+      <Parameter Name="BirthDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IdGenderUser" Mode="In" Type="Int32" />
+      <Parameter Name="Sex" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ListorDetailUser" ReturnType="Collection(BdTestModel.ListorDetailUser_Result)">
+      <Parameter Name="IdUser" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="ListorDetailUserGenders_Result">
+    <Property Type="Int32" Name="IdGenderUser" Nullable="false" />
+    <Property Type="String" Name="GenderDescription" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="RegisterOrSaveUserUsers_Result">
+    <Property Type="Int32" Name="IdUser" Nullable="false" />
+    <Property Type="String" Name="NameUser" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="BirthDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="IdGenderUser" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ListorDetailUser_Result">
+    <Property Type="Int32" Name="IdUser" Nullable="false" />
+    <Property Type="String" Name="NameUser" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="BirthDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="IdGenderUser" Nullable="false" />
+    <Property Type="String" Name="GenderDescription" Nullable="false" MaxLength="20" />
+  </ComplexType>
+</Schema>

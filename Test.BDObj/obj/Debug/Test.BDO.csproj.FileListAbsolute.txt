@@ -1,0 +1,12 @@
+D:\Labs\Test.Solution\Test.BDObj\obj\Debug\Test.BDO.csproj.CoreCompileInputs.cache
+D:\Labs\Test.Solution\Test.BDObj\obj\Debug\Test.BDO.csprojAssemblyReference.cache
+D:\Labs\Test.Solution\Test.BDObj\bin\Debug\Test.BDO.dll.config
+D:\Labs\Test.Solution\Test.BDObj\bin\Debug\Test.BDO.dll
+D:\Labs\Test.Solution\Test.BDObj\bin\Debug\Test.BDO.pdb
+D:\Labs\Test.Solution\Test.BDObj\bin\Debug\EntityFramework.dll
+D:\Labs\Test.Solution\Test.BDObj\bin\Debug\EntityFramework.SqlServer.dll
+D:\Labs\Test.Solution\Test.BDObj\bin\Debug\EntityFramework.xml
+D:\Labs\Test.Solution\Test.BDObj\bin\Debug\EntityFramework.SqlServer.xml
+D:\Labs\Test.Solution\Test.BDObj\obj\Debug\Test.BDO.csproj.CopyComplete
+D:\Labs\Test.Solution\Test.BDObj\obj\Debug\Test.BDO.dll
+D:\Labs\Test.Solution\Test.BDObj\obj\Debug\Test.BDO.pdb

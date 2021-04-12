@@ -1,0 +1,6 @@
+D:\Labs\Test.Solution\Test.FaultContracts\bin\Debug\StoreFaultContracts.dll
+D:\Labs\Test.Solution\Test.FaultContracts\bin\Debug\StoreFaultContracts.pdb
+D:\Labs\Test.Solution\Test.FaultContracts\obj\Debug\Test.FaultContracts.csprojAssemblyReference.cache
+D:\Labs\Test.Solution\Test.FaultContracts\obj\Debug\Test.FaultContracts.csproj.CoreCompileInputs.cache
+D:\Labs\Test.Solution\Test.FaultContracts\obj\Debug\StoreFaultContracts.dll
+D:\Labs\Test.Solution\Test.FaultContracts\obj\Debug\StoreFaultContracts.pdb

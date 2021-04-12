@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BdTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TbUserGenders">
+          <Key>
+            <PropertyRef Name="IdGenderUser" />
+          </Key>
+          <Property Name="IdGenderUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GenderDescription" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TbUsers">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameUser" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="BirthDate" Type="datetime" Nullable="false" />
+          <Property Name="IdGenderUser" Type="int" Nullable="false" />
+          <Property Name="Sex" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Tb_Users_Tb_UserGenders">
+          <End Role="TbUserGenders" Type="Self.TbUserGenders" Multiplicity="1" />
+          <End Role="TbUsers" Type="Self.TbUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TbUserGenders">
+              <PropertyRef Name="IdGenderUser" />
+            </Principal>
+            <Dependent Role="TbUsers">
+              <PropertyRef Name="IdGenderUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="DeleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdUser" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ListorDetailUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdUser" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ListorDetailUserGenders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdGenderUser" Type="int" Mode="In" />
+        </Function>
+        <Function Name="RegisterOrSaveUserUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdUser" Type="int" Mode="In" />
+          <Parameter Name="NameUser" Type="varchar" Mode="In" />
+          <Parameter Name="BirthDate" Type="datetime" Mode="In" />
+          <Parameter Name="IdGenderUser" Type="int" Mode="In" />
+          <Parameter Name="Sex" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="BdTestModelStoreContainer">
+          <EntitySet Name="TbUserGenders" EntityType="Self.TbUserGenders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TbUsers" EntityType="Self.TbUsers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Tb_Users_Tb_UserGenders" Association="Self.FK_Tb_Users_Tb_UserGenders">
+            <End Role="TbUserGenders" EntitySet="TbUserGenders" />
+            <End Role="TbUsers" EntitySet="TbUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BdTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TbUserGender">
+          <Key>
+            <PropertyRef Name="IdGenderUser" />
+          </Key>
+          <Property Name="IdGenderUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GenderDescription" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TbUsers" Relationship="Self.FK_Tb_Users_Tb_UserGenders" FromRole="TbUserGenders" ToRole="TbUsers" />
+        </EntityType>
+        <EntityType Name="TbUser">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameUser" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdGenderUser" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TbUserGender" Relationship="Self.FK_Tb_Users_Tb_UserGenders" FromRole="TbUsers" ToRole="TbUserGenders" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Tb_Users_Tb_UserGenders">
+          <End Role="TbUserGenders" Type="Self.TbUserGender" Multiplicity="1" />
+          <End Role="TbUsers" Type="Self.TbUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TbUserGenders">
+              <PropertyRef Name="IdGenderUser" />
+            </Principal>
+            <Dependent Role="TbUsers">
+              <PropertyRef Name="IdGenderUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BdTestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TbUserGenders" EntityType="Self.TbUserGender" />
+          <EntitySet Name="TbUsers" EntityType="Self.TbUser" />
+          <AssociationSet Name="FK_Tb_Users_Tb_UserGenders" Association="Self.FK_Tb_Users_Tb_UserGenders">
+            <End Role="TbUserGenders" EntitySet="TbUserGenders" />
+            <End Role="TbUsers" EntitySet="TbUsers" />
+          </AssociationSet>
+          <FunctionImport Name="DeleteUser">
+          <Parameter Name="IdUser" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ListorDetailUserGenders" ReturnType="Collection(BdTestModel.ListorDetailUserGenders_Result)">
+          <Parameter Name="IdGenderUser" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="RegisterOrSaveUserUsers" EntitySet="TbUsers" ReturnType="Collection(BdTestModel.TbUser)">
+            <Parameter Name="IdUser" Mode="In" Type="Int32" />
+            <Parameter Name="NameUser" Mode="In" Type="String" />
+            <Parameter Name="BirthDate" Mode="In" Type="DateTime" />
+            <Parameter Name="IdGenderUser" Mode="In" Type="Int32" />
+            <Parameter Name="Sex" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ListorDetailUser" ReturnType="Collection(BdTestModel.ListorDetailUser_Result)">
+          <Parameter Name="IdUser" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="ListorDetailUserGenders_Result">
+          <Property Type="Int32" Name="IdGenderUser" Nullable="false" />
+          <Property Type="String" Name="GenderDescription" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="RegisterOrSaveUserUsers_Result">
+          <Property Type="Int32" Name="IdUser" Nullable="false" />
+          <Property Type="String" Name="NameUser" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="BirthDate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="IdGenderUser" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ListorDetailUser_Result">
+          <Property Type="Int32" Name="IdUser" Nullable="false" />
+          <Property Type="String" Name="NameUser" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="BirthDate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="IdGenderUser" Nullable="false" />
+          <Property Type="String" Name="GenderDescription" Nullable="false" MaxLength="20" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BdTestModelStoreContainer" CdmEntityContainer="BdTestEntities">
+          <EntitySetMapping Name="TbUserGenders">
+            <EntityTypeMapping TypeName="BdTestModel.TbUserGender">
+              <MappingFragment StoreEntitySet="TbUserGenders">
+                <ScalarProperty Name="IdGenderUser" ColumnName="IdGenderUser" />
+                <ScalarProperty Name="GenderDescription" ColumnName="GenderDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TbUsers">
+            <EntityTypeMapping TypeName="BdTestModel.TbUser">
+              <MappingFragment StoreEntitySet="TbUsers">
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="IdGenderUser" ColumnName="IdGenderUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteUser" FunctionName="BdTestModel.Store.DeleteUser" />
+          <FunctionImportMapping FunctionImportName="ListorDetailUserGenders" FunctionName="BdTestModel.Store.ListorDetailUserGenders">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BdTestModel.ListorDetailUserGenders_Result">
+                <ScalarProperty Name="IdGenderUser" ColumnName="IdGenderUser" />
+                <ScalarProperty Name="GenderDescription" ColumnName="GenderDescription" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="RegisterOrSaveUserUsers" FunctionName="BdTestModel.Store.RegisterOrSaveUserUsers">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ListorDetailUser" FunctionName="BdTestModel.Store.ListorDetailUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BdTestModel.ListorDetailUser_Result">
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="IdGenderUser" ColumnName="IdGenderUser" />
+                <ScalarProperty Name="GenderDescription" ColumnName="GenderDescription" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
