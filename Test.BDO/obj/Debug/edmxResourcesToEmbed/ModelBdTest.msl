@@ -38,6 +38,7 @@
           <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
           <ScalarProperty Name="IdGenderUser" ColumnName="IdGenderUser" />
           <ScalarProperty Name="GenderDescription" ColumnName="GenderDescription" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

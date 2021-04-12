@@ -10,7 +10,7 @@
 namespace Test.BDO
 {
     using System;
-
+    
     public partial class ListorDetailUser_Result
     {
         public int IdUser { get; set; }

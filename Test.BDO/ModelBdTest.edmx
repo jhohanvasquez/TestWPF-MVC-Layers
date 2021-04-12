@@ -114,7 +114,7 @@
             <Parameter Name="Sex" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="ListorDetailUser" ReturnType="Collection(BdTestModel.ListorDetailUser_Result)">
-          <Parameter Name="IdUser" Mode="In" Type="Int32" />
+            <Parameter Name="IdUser" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="ListorDetailUserGenders_Result">
@@ -129,10 +129,11 @@
         </ComplexType>
         <ComplexType Name="ListorDetailUser_Result">
           <Property Type="Int32" Name="IdUser" Nullable="false" />
-          <Property Type="String" Name="NameUser" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NameUser" Nullable="false" MaxLength="100" />
           <Property Type="DateTime" Name="BirthDate" Nullable="false" Precision="23" />
           <Property Type="Int32" Name="IdGenderUser" Nullable="false" />
           <Property Type="String" Name="GenderDescription" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Sex" Nullable="false" MaxLength="1" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -178,6 +179,7 @@
                 <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
                 <ScalarProperty Name="IdGenderUser" ColumnName="IdGenderUser" />
                 <ScalarProperty Name="GenderDescription" ColumnName="GenderDescription" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
